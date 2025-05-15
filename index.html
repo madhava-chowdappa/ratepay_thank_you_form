@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RatePay - Get Started</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 20px;
+            color: #333;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        .form-container, .thank-you-message {
+            background: #f9f9f9;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+        h1 {
+            color: #2c3e50;
+            font-size: 24px;
+        }
+        label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+        }
+        input, select {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 15px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            box-sizing: border-box;
+        }
+        button {
+            background: #2c3e50;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+        button:hover {
+            background: #1a252f;
+        }
+        .thank-you-message {
+            display: none; /* Hidden by default */
+        }
+    </style>
+</head>
+<body>
+    <!-- Lead Form (shown by default) -->
+    <div class="form-container" id="leadForm">
+        <h1>Get Started with RatePay</h1>
+        <p>Fill out the form below, and our team will contact you shortly.</p>
+        <form id="ratepayForm" onsubmit="return submitForm(event)">
+            <label for="name">Full Name*</label>
+            <input type="text" id="name" name="name" required>
+
+            <label for="email">Email*</label>
+            <input type="email" id="email" name="email" required>
+
+            <label for="phone">Phone Number</label>
+            <input type="tel" id="phone" name="phone">
+
+            <label for="business">Business Name</label>
+            <input type="text" id="business" name="business">
+
+            <label for="interest">What are you interested in?</label>
+            <select id="interest" name="interest">
+                <option value="merchant">Becoming a Merchant</option>
+                <option value="customer">Payment Solutions</option>
+                <option value="partner">Partnership</option>
+            </select>
+
+            <button type="submit">Submit</button>
+        </form>
+    </div>
+
+    <!-- Thank-You Message (hidden until submission) -->
+    <div class="thank-you-message" id="thankYouMessage">
+        <h1>Thank You for Your Interest in RatePay!</h1>
+        <p>We’ve received your details and will contact you shortly. If you have any questions, email us at <strong>support@ratepay.com</strong>.</p>
+        <p><strong>Your RatePay Team</strong></p>
+    </div>
+
+    <!-- Simple JavaScript to handle form submission -->
+    <script>
+        function submitForm(event) {
+            event.preventDefault(); // Prevents page reload
+            
+            // Here, you'd typically send the form data to your backend (e.g., via fetch/API).
+            // For demo purposes, we'll just show the thank-you message.
+            
+            document.getElementById("leadForm").style.display = "none";
+            document.getElementById("thankYouMessage").style.display = "block";
+            
+            // Optional: Reset form after submission
+            document.getElementById("ratepayForm").reset();
+            
+            return false;
+        }
+    </script>
+</body>
+</html>
